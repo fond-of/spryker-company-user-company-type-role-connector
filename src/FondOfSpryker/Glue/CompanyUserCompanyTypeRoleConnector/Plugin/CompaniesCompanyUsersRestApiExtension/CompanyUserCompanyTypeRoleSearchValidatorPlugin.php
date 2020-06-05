@@ -22,6 +22,6 @@ class CompanyUserCompanyTypeRoleSearchValidatorPlugin extends AbstractPlugin imp
      */
     public function validate(CompanyUserTransfer $companyUserTransfer): bool
     {
-        return $this->getFactory()->createCompanyUserCompanyRoleSearchValidator()->validate($companyUserTransfer);
+        return $this->getFactory()->createCompanyUserCompanyTypeRoleSearchValidator()->validate($companyUserTransfer);
     }
 }
