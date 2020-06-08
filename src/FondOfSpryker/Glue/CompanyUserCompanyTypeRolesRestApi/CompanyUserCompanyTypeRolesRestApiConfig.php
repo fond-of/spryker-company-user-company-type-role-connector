@@ -1,11 +1,11 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi;
 
-use FondOfSpryker\Shared\CompanyUserCompanyTypeRoleConnector\CompanyUserCompanyTypeRoleConnectorConstants;
+use FondOfSpryker\Shared\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiConstants;
 use Spryker\Glue\Kernel\AbstractBundleConfig;
 
-class CompanyUserCompanyTypeRoleConnectorConfig extends AbstractBundleConfig
+class CompanyUserCompanyTypeRolesRestApiConfig extends AbstractBundleConfig
 {
     /**
      * @param string $companyType
@@ -14,7 +14,7 @@ class CompanyUserCompanyTypeRoleConnectorConfig extends AbstractBundleConfig
      */
     public function getAllowedCompanyUserCompanyRolesForSearch(string $companyType = ''): array
     {
-        $companyRoles = $this->get(CompanyUserCompanyTypeRoleConnectorConstants::VALID_COMPANY_TYPE_COMPANY_ROLES_FOR_SEARCH_LIST, []);
+        $companyRoles = $this->get(CompanyUserCompanyTypeRolesRestApiConstants::VALID_COMPANY_TYPE_COMPANY_ROLES_FOR_SEARCH_LIST, []);
 
         if ($companyType === '') {
             return $companyRoles;

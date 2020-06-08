@@ -1,12 +1,12 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client;
 
 use Generated\Shared\Transfer\CompanyRoleCollectionTransfer;
 use Generated\Shared\Transfer\CompanyRoleCriteriaFilterTransfer;
 use Spryker\Client\CompanyRole\CompanyRoleClientInterface;
 
-class CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientBridge implements CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientInterface
+class CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientBridge implements CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface
 {
     /**
      * @var \Spryker\Client\CompanyRole\CompanyRoleClientInterface

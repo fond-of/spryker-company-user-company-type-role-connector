@@ -1,15 +1,15 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Plugin\CompaniesCompanyUsersRestApiExtension;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Plugin\CompaniesCompanyUsersRestApiExtension;
 
 use FondOfSpryker\Glue\CompaniesCompanyUsersRestApiExtension\Dependency\Plugin\CompanyCompanyUserSearchValidatorPluginInterface;
 use Generated\Shared\Transfer\CompanyUserTransfer;
 use Spryker\Glue\Kernel\AbstractPlugin;
 
 /**
- * @method \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\CompanyUserCompanyTypeRoleConnectorFactory getFactory()
+ * @method \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiFactory getFactory()
  */
-class CompanyUserCompanyTypeRoleSearchValidatorPlugin extends AbstractPlugin implements CompanyCompanyUserSearchValidatorPluginInterface
+class CompanyUserCompanyTypeRolesSearchValidatorPlugin extends AbstractPlugin implements CompanyCompanyUserSearchValidatorPluginInterface
 {
     /**
      * @inheritDoc

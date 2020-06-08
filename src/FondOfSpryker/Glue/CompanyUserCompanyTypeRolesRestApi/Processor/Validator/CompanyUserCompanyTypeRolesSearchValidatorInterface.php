@@ -1,10 +1,10 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Processor\Validator;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Processor\Validator;
 
 use Generated\Shared\Transfer\CompanyUserTransfer;
 
-interface CompanyUserCompanyTypeRoleSearchValidatorInterface
+interface CompanyUserCompanyTypeRolesSearchValidatorInterface
 {
     /**
      * @param \Generated\Shared\Transfer\CompanyUserTransfer $companyUserTransfer

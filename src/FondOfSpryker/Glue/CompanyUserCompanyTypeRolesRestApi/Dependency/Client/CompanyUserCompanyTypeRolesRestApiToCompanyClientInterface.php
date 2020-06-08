@@ -1,10 +1,10 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client;
 
 use Generated\Shared\Transfer\CompanyTransfer;
 
-interface CompanyUserCompanyTypeRoleConnectorToCompanyClientInterface
+interface CompanyUserCompanyTypeRolesRestApiToCompanyClientInterface
 {
     /**
      * @param \Generated\Shared\Transfer\CompanyTransfer $companyTransfer

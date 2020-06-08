@@ -1,11 +1,11 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client;
 
 use Generated\Shared\Transfer\CompanyTransfer;
 use Spryker\Client\Company\CompanyClientInterface;
 
-class CompanyUserCompanyTypeRoleConnectorToCompanyClientBridge implements CompanyUserCompanyTypeRoleConnectorToCompanyClientInterface
+class CompanyUserCompanyTypeRolesRestApiToCompanyClientBridge implements CompanyUserCompanyTypeRolesRestApiToCompanyClientInterface
 {
     /**
      * @var \Spryker\Client\Company\CompanyClientInterface

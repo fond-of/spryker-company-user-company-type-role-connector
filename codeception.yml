@@ -1,4 +1,4 @@
-namespace: fond-of-spryker/company-user-company-type-role-connector
+namespace: fond-of-spryker/company-user-company-type-roles-rest-api
 
 suites:
   unit:

@@ -1,8 +1,8 @@
 <?php
 
-namespace FondOfSpryker\Shared\CompanyUserCompanyTypeRoleConnector;
+namespace FondOfSpryker\Shared\CompanyUserCompanyTypeRolesRestApi;
 
-interface CompanyUserCompanyTypeRoleConnectorConstants
+interface CompanyUserCompanyTypeRolesRestApiConstants
 {
     public const VALID_COMPANY_TYPE_COMPANY_ROLES_FOR_SEARCH_LIST = 'VALID_COMPANY_TYPE_COMPANY_ROLES_FOR_SEARCH_LIST';
 }

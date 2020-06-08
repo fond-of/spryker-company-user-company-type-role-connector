@@ -1,14 +1,14 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi;
 
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyClientBridge;
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientBridge;
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyTypeClientBridge;
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyClientBridge;
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientBridge;
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge;
 use Spryker\Glue\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Glue\Kernel\Container;
 
-class CompanyUserCompanyTypeRoleConnectorDependencyProvider extends AbstractBundleDependencyProvider
+class CompanyUserCompanyTypeRolesRestApiDependencyProvider extends AbstractBundleDependencyProvider
 {
     public const CLIENT_COMPANY_ROLE = 'CLIENT_COMPANY_ROLE';
     public const CLIENT_COMPANY = 'CLIENT_COMPANY';
@@ -37,7 +37,7 @@ class CompanyUserCompanyTypeRoleConnectorDependencyProvider extends AbstractBund
     protected function addCompanyRoleClient(Container $container): Container
     {
         $container[static::CLIENT_COMPANY_ROLE] = static function (Container $container) {
-            return new CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientBridge(
+            return new CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientBridge(
                 $container->getLocator()->companyRole()->client()
             );
         };
@@ -53,7 +53,7 @@ class CompanyUserCompanyTypeRoleConnectorDependencyProvider extends AbstractBund
     protected function addCompanyClient(Container $container): Container
     {
         $container[static::CLIENT_COMPANY] = static function (Container $container) {
-            return new CompanyUserCompanyTypeRoleConnectorToCompanyClientBridge(
+            return new CompanyUserCompanyTypeRolesRestApiToCompanyClientBridge(
                 $container->getLocator()->company()->client()
             );
         };
@@ -69,7 +69,7 @@ class CompanyUserCompanyTypeRoleConnectorDependencyProvider extends AbstractBund
     protected function addCompanyTypeClient(Container $container): Container
     {
         $container[static::CLIENT_COMPANY_TYPE] = static function (Container $container) {
-            return new CompanyUserCompanyTypeRoleConnectorToCompanyTypeClientBridge(
+            return new CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge(
                 $container->getLocator()->companyType()->client()
             );
         };

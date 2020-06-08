@@ -1,50 +1,49 @@
 <?php
 
-namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Processor\Validator;
+namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Processor\Validator;
 
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\CompanyUserCompanyTypeRoleConnectorConfig;
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyClientInterface;
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientInterface;
-use FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyTypeClientInterface;
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiConfig;
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface;
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientInterface;
 use Generated\Shared\Transfer\CompanyRoleCollectionTransfer;
 use Generated\Shared\Transfer\CompanyRoleCriteriaFilterTransfer;
 use Generated\Shared\Transfer\CompanyTransfer;
 use Generated\Shared\Transfer\CompanyTypeTransfer;
 use Generated\Shared\Transfer\CompanyUserTransfer;
 
-class CompanyUserCompanyTypeRoleSearchValidator implements CompanyUserCompanyTypeRoleSearchValidatorInterface
+class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTypeRolesSearchValidatorInterface
 {
     /**
-     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyClientInterface
+     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyClientInterface
      */
     protected $companyClient;
 
     /**
-     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientInterface
+     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface
      */
     protected $companyRoleClient;
 
     /**
-     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyTypeClientInterface
+     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientInterface
      */
     protected $companyTypeClient;
 
     /**
-     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\CompanyUserCompanyTypeRoleConnectorConfig
+     * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiConfig
      */
     protected $config;
 
     /**
-     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyClientInterface $companyClient
-     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientInterface $companyRoleClient
-     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\Dependency\Client\CompanyUserCompanyTypeRoleConnectorToCompanyTypeClientInterface $companyTypeClient
-     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRoleConnector\CompanyUserCompanyTypeRoleConnectorConfig $config
+     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyClientInterface $companyClient
+     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface $companyRoleClient
+     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientInterface $companyTypeClient
+     * @param \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiConfig $config
      */
     public function __construct(
-        CompanyUserCompanyTypeRoleConnectorToCompanyClientInterface $companyClient,
-        CompanyUserCompanyTypeRoleConnectorToCompanyRoleClientInterface $companyRoleClient,
-        CompanyUserCompanyTypeRoleConnectorToCompanyTypeClientInterface $companyTypeClient,
-        CompanyUserCompanyTypeRoleConnectorConfig $config
+        CompanyUserCompanyTypeRolesRestApiToCompanyClientInterface $companyClient,
+        CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface $companyRoleClient,
+        CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientInterface $companyTypeClient,
+        CompanyUserCompanyTypeRolesRestApiConfig $config
     ) {
         $this->companyClient = $companyClient;
         $this->companyRoleClient = $companyRoleClient;
