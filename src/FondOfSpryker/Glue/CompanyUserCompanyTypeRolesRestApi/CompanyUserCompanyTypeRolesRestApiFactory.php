@@ -2,6 +2,7 @@
 
 namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi;
 
+use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyClientInterface;
 use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface;
 use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientInterface;
 use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Processor\Validator\CompanyUserCompanyTypeRolesSearchValidator;
@@ -25,6 +26,8 @@ class CompanyUserCompanyTypeRolesRestApiFactory extends AbstractFactory
 
     /**
      * @return \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface
+     *
+     * @throws \Spryker\Glue\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     protected function getCompanyRoleClient(): CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface
     {

@@ -13,7 +13,7 @@ class CompanyUserCompanyTypeRolesRestApiToCompanyClientBridge implements Company
     protected $companyClient;
 
     /**
-     * @param \Spryker\Client\Company\CompanyClientInterface $companyRoleClient
+     * @param \Spryker\Client\Company\CompanyClientInterface $companyClient
      */
     public function __construct(
         CompanyClientInterface $companyClient
