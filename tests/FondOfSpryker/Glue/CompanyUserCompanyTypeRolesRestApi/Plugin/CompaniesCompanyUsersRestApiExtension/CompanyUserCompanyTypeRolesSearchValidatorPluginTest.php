@@ -93,8 +93,8 @@ class CompanyUserCompanyTypeRolesSearchValidatorPluginTest extends Unit
             ->with($this->companyUserTransferMock)
             ->willReturn(true);
 
-        $validate = $this->companyUserCompanyTypeRolesSearchValidatorPlugin->validate($this->companyUserTransferMock);
-        $this->assertIsBool($validate);
-        $this->assertTrue($validate);
+        $validationResponse = $this->companyUserCompanyTypeRolesSearchValidatorPlugin->validate($this->companyUserTransferMock);
+        $this->assertIsBool($validationResponse);
+        $this->assertTrue($validationResponse);
     }
 }
