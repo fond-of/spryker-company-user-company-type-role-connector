@@ -14,7 +14,7 @@ class CompanyUserCompanyTypeRolesRestApiFactoryTest extends Unit
     /**
      * @var \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiFactory
      */
-    protected $companyUserCompnayTypeRolesRestApiFactory;
+    protected $companyUserCompanyTypeRolesRestApiFactory;
 
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Glue\Kernel\Container
@@ -37,6 +37,11 @@ class CompanyUserCompanyTypeRolesRestApiFactoryTest extends Unit
     protected $companyUserCompanyTypeRolesRestApiToCompanyTypeClientMock;
 
     /**
+     * @var \PHPUnit\Framework\MockObject\MockObject|CompanyUserCompanyTypeRolesRestApiConfig
+     */
+    protected $companyUserCompanyTypeRolesRestApiConfigMock;
+
+    /**
      * @return void
      */
     protected function _before(): void
@@ -57,8 +62,13 @@ class CompanyUserCompanyTypeRolesRestApiFactoryTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->companyUserCompnayTypeRolesRestApiFactory = new CompanyUserCompanyTypeRolesRestApiFactory();
-        $this->companyUserCompnayTypeRolesRestApiFactory->setContainer($this->containerMock);
+        $this->companyUserCompanyTypeRolesRestApiConfigMock = $this->getMockBuilder(CompanyUserCompanyTypeRolesRestApiConfig::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->companyUserCompanyTypeRolesRestApiFactory = new CompanyUserCompanyTypeRolesRestApiFactory();
+        $this->companyUserCompanyTypeRolesRestApiFactory->setContainer($this->containerMock);
+        $this->companyUserCompanyTypeRolesRestApiFactory->setConfig($this->companyUserCompanyTypeRolesRestApiConfigMock);
     }
 
     /**
@@ -85,7 +95,7 @@ class CompanyUserCompanyTypeRolesRestApiFactoryTest extends Unit
 
         $this->assertInstanceOf(
             CompanyUserCompanyTypeRolesSearchValidator::class,
-            $this->companyUserCompnayTypeRolesRestApiFactory->createCompanyUserCompanyTypeRoleSearchValidator()
+            $this->companyUserCompanyTypeRolesRestApiFactory->createCompanyUserCompanyTypeRoleSearchValidator()
         );
     }
 }
