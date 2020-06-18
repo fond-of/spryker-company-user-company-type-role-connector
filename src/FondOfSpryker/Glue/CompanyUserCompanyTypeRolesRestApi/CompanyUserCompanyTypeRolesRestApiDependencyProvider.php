@@ -22,25 +22,9 @@ class CompanyUserCompanyTypeRolesRestApiDependencyProvider extends AbstractBundl
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
-        $container = $this->addCompanyRoleClient($container);
         $container = $this->addCompanyClient($container);
+        $container = $this->addCompanyRoleClient($container);
         $container = $this->addCompanyTypeClient($container);
-
-        return $container;
-    }
-
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
-    protected function addCompanyRoleClient(Container $container): Container
-    {
-        $container[static::CLIENT_COMPANY_ROLE] = static function (Container $container) {
-            return new CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientBridge(
-                $container->getLocator()->companyRole()->client()
-            );
-        };
 
         return $container;
     }
@@ -55,6 +39,22 @@ class CompanyUserCompanyTypeRolesRestApiDependencyProvider extends AbstractBundl
         $container[static::CLIENT_COMPANY] = static function (Container $container) {
             return new CompanyUserCompanyTypeRolesRestApiToCompanyClientBridge(
                 $container->getLocator()->company()->client()
+            );
+        };
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Glue\Kernel\Container $container
+     *
+     * @return \Spryker\Glue\Kernel\Container
+     */
+    protected function addCompanyRoleClient(Container $container): Container
+    {
+        $container[static::CLIENT_COMPANY_ROLE] = static function (Container $container) {
+            return new CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientBridge(
+                $container->getLocator()->companyRole()->client()
             );
         };
 
