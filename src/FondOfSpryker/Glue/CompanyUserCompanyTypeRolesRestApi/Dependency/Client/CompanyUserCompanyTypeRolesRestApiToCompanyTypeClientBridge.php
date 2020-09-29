@@ -21,22 +21,11 @@ class CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge implements Com
     ) {
         $this->companyTypeClient = $companyTypeClient;
     }
-
+    
     /**
      * @param \Generated\Shared\Transfer\CompanyTypeTransfer $companyTypeTransfer
      *
-     * @return \Generated\Shared\Transfer\CompanyTypeTransfer
-     */
-    public function getCompanyTypeById(
-        CompanyTypeTransfer $companyTypeTransfer
-    ): CompanyTypeTransfer {
-        return $this->companyTypeClient->getCompanyTypeById($companyTypeTransfer);
-    }
-
-    /**
-     * @param \Generated\Shared\Transfer\CompanyTypeTransfer $companyTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CompanyTypeTransfer
+     * @return \Generated\Shared\Transfer\CompanyTypeResponseTransfer
      */
     public function findCompanyTypeById(
         CompanyTypeTransfer $companyTypeTransfer
