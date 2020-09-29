@@ -4,6 +4,7 @@ namespace FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Clien
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Client\CompanyType\CompanyTypeClientInterface;
+use Generated\Shared\Transfer\CompanyTypeResponseTransfer;
 use Generated\Shared\Transfer\CompanyTypeTransfer;
 
 class CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridgeTest extends Unit
@@ -24,6 +25,11 @@ class CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridgeTest extends Un
     protected $companyTypeTransferMock;
 
     /**
+     * @var \PHPUnit\Framework\MockObject\MockObject|\Generated\Shared\Transfer\CompanyTypeResponseTransfer
+     */
+    protected $companyTypeResponseTransferMock;
+
+    /**
      * @return void
      */
     protected function _before(): void
@@ -38,6 +44,10 @@ class CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridgeTest extends Un
             ->disableOriginalConstructor()
             ->getMock();
 
+        $this->companyTypeResponseTransferMock = $this->getMockBuilder(CompanyTypeResponseTransfer::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $this->companyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge =
             new CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge($this->companyTypeClientMock);
     }
@@ -45,16 +55,16 @@ class CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridgeTest extends Un
     /**
      * @return void
      */
-    public function testGetCompanyTypeById(): void
+    public function testFindCompanyTypeById(): void
     {
         $this->companyTypeClientMock->expects($this->atLeastOnce())
-            ->method('getCompanyTypeById')
+            ->method('findCompanyTypeById')
             ->with($this->companyTypeTransferMock)
-            ->willReturn($this->companyTypeTransferMock);
+            ->willReturn($this->companyTypeResponseTransferMock);
 
         $this->assertInstanceOf(
-            CompanyTypeTransfer::class,
-            $this->companyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge->getCompanyTypeById($this->companyTypeTransferMock)
+            CompanyTypeResponseTransfer::class,
+            $this->companyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge->findCompanyTypeById($this->companyTypeTransferMock)
         );
     }
 }
