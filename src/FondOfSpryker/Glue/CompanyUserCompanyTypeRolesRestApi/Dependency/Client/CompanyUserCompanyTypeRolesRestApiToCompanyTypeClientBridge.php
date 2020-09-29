@@ -21,7 +21,7 @@ class CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientBridge implements Com
     ) {
         $this->companyTypeClient = $companyTypeClient;
     }
-    
+
     /**
      * @param \Generated\Shared\Transfer\CompanyTypeTransfer $companyTypeTransfer
      *
