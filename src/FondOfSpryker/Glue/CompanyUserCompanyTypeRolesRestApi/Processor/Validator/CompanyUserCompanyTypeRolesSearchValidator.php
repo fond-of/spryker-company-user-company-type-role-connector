@@ -87,14 +87,9 @@ class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTy
             return false;
         }
 
-        if ($this->hasCompanyUserValidCompanyTypeRoles(
-            $companyRoleCollectionTransfer,
-            $companyTypeResponseTransfer->getCompanyTypeTransfer()
-            ) === false) {
-                return false;
-        }
+        return $this->hasCompanyUserValidCompanyTypeRoles($companyRoleCollectionTransfer,
+            $companyTypeResponseTransfer->getCompanyTypeTransfer());
 
-        return true;
     }
 
     /**
