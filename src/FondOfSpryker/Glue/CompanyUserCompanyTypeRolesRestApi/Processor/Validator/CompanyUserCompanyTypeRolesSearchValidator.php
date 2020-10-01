@@ -67,9 +67,11 @@ class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTy
         }
 
         $companyTypeTransfer = (new CompanyTypeTransfer())->setIdCompanyType($companyTransfer->getFkCompanyType());
-        $companyTypeTransfer = $this->companyTypeClient->getCompanyTypeById($companyTypeTransfer);
+        $companyTypeResponseTransfer = $this->companyTypeClient->findCompanyTypeById($companyTypeTransfer);
 
-        if ($companyTypeTransfer === null) {
+        if ($companyTypeResponseTransfer->getIsSuccessful() == false
+            || $companyTypeResponseTransfer->getCompanyTypeTransfer() === null
+        ) {
             return false;
         }
 
@@ -85,11 +87,9 @@ class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTy
             return false;
         }
 
-        if ($this->hasCompanyUserValidCompanyTypeRoles($companyRoleCollectionTransfer, $companyTypeTransfer) === false) {
-            return false;
-        }
+        return $this->hasCompanyUserValidCompanyTypeRoles($companyRoleCollectionTransfer,
+            $companyTypeResponseTransfer->getCompanyTypeTransfer());
 
-        return true;
     }
 
     /**

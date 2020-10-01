@@ -11,6 +11,7 @@ use FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\Comp
 use Generated\Shared\Transfer\CompanyRoleCollectionTransfer;
 use Generated\Shared\Transfer\CompanyRoleTransfer;
 use Generated\Shared\Transfer\CompanyTransfer;
+use Generated\Shared\Transfer\CompanyTypeResponseTransfer;
 use Generated\Shared\Transfer\CompanyTypeTransfer;
 use Generated\Shared\Transfer\CompanyUserTransfer;
 
@@ -30,6 +31,11 @@ class CompanyUserCompanyTypeRolesSearchValidatorTest extends Unit
      * @var \PHPUnit\Framework\MockObject\MockObject|\Generated\Shared\Transfer\CompanyRoleTransfer
      */
     protected $companyRoleTransferMock;
+
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject|\Generated\Shared\Transfer\CompanyTypeResponseTransfer
+     */
+    protected $companyTypeResponseTransferMock;
 
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject|\Generated\Shared\Transfer\CompanyTypeTransfer
@@ -79,6 +85,10 @@ class CompanyUserCompanyTypeRolesSearchValidatorTest extends Unit
             ->getMock();
 
         $this->companyRoleTransferMock = $this->getMockBuilder(CompanyRoleTransfer::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->companyTypeResponseTransferMock = $this->getMockBuilder(CompanyTypeResponseTransfer::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -140,7 +150,15 @@ class CompanyUserCompanyTypeRolesSearchValidatorTest extends Unit
             ->willReturn($this->companyTransferMock);
 
         $this->companyUserCompanyTypeRolesRestApiToCompanyTypeClientMock->expects($this->atLeastOnce())
-            ->method('getCompanyTypeById')
+            ->method('findCompanyTypeById')
+            ->willReturn($this->companyTypeResponseTransferMock);
+
+        $this->companyTypeResponseTransferMock->expects($this->atLeastOnce())
+            ->method('getIsSuccessful')
+            ->willReturn(true);
+
+        $this->companyTypeResponseTransferMock->expects($this->atLeastOnce())
+            ->method('getCompanyTypeTransfer')
             ->willReturn($this->companyTypeTransferMock);
 
         $this->companyUserCompanyTypeRolesRestApiToCompanyRoleClientMock->expects($this->atLeastOnce())
