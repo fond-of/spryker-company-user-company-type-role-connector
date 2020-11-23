@@ -71,6 +71,7 @@ class CompanyUserCompanyTypeRolesSearchValidatorTest extends Unit
      * @var \PHPUnit\Framework\MockObject\MockObject|\FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\CompanyUserCompanyTypeRolesRestApiConfig
      */
     protected $companyUserCompanyTypeRolesRestApiConfigMock;
+
     /**
      * @return void
      */
@@ -122,7 +123,6 @@ class CompanyUserCompanyTypeRolesSearchValidatorTest extends Unit
             $this->companyUserCompanyTypeRolesRestApiToCompanyTypeClientMock,
             $this->companyUserCompanyTypeRolesRestApiConfigMock
         );
-
     }
 
     /**

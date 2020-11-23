@@ -62,14 +62,11 @@ class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTy
         $companyTransfer = (new CompanyTransfer())->setIdCompany($companyUserTransfer->getFkCompany());
         $companyTransfer = $this->companyClient->getCompanyById($companyTransfer);
 
-        if ($companyTransfer === null) {
-            return false;
-        }
-
         $companyTypeTransfer = (new CompanyTypeTransfer())->setIdCompanyType($companyTransfer->getFkCompanyType());
         $companyTypeResponseTransfer = $this->companyTypeClient->findCompanyTypeById($companyTypeTransfer);
 
-        if ($companyTypeResponseTransfer->getIsSuccessful() == false
+        if (
+            $companyTypeResponseTransfer->getIsSuccessful() === false
             || $companyTypeResponseTransfer->getCompanyTypeTransfer() === null
         ) {
             return false;
@@ -83,13 +80,10 @@ class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTy
         $companyRoleCollectionTransfer = $this->companyRoleClient
             ->getCompanyRoleCollection($companyRoleCriteriaFilterTransfer);
 
-        if ($companyRoleCollectionTransfer === null) {
-            return false;
-        }
-
-        return $this->hasCompanyUserValidCompanyTypeRoles($companyRoleCollectionTransfer,
-            $companyTypeResponseTransfer->getCompanyTypeTransfer());
-
+        return $this->hasCompanyUserValidCompanyTypeRoles(
+            $companyRoleCollectionTransfer,
+            $companyTypeResponseTransfer->getCompanyTypeTransfer()
+        );
     }
 
     /**
@@ -102,12 +96,13 @@ class CompanyUserCompanyTypeRolesSearchValidator implements CompanyUserCompanyTy
         CompanyRoleCollectionTransfer $companyRoleCollectionTransfer,
         CompanyTypeTransfer $companyTypeTransfer
     ): bool {
-
         foreach ($companyRoleCollectionTransfer->getRoles() as $companyRoleTransfer) {
-            if (in_array(
-                $companyRoleTransfer->getName(),
-                $this->config->getAllowedCompanyUserCompanyRolesForSearch($companyTypeTransfer->getName())
-            ) === true) {
+            if (
+                in_array(
+                    $companyRoleTransfer->getName(),
+                    $this->config->getAllowedCompanyUserCompanyRolesForSearch($companyTypeTransfer->getName())
+                ) === true
+            ) {
                 return true;
             }
         }
