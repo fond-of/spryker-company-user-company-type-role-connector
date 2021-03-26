@@ -7,7 +7,6 @@ use Generated\Shared\Transfer\CompanyTypeTransfer;
 
 interface CompanyUserCompanyTypeRolesRestApiToCompanyTypeClientInterface
 {
-
     /**
      * @param \Generated\Shared\Transfer\CompanyTypeTransfer $companyTypeTransfer
      *

@@ -26,8 +26,6 @@ class CompanyUserCompanyTypeRolesRestApiFactory extends AbstractFactory
 
     /**
      * @return \FondOfSpryker\Glue\CompanyUserCompanyTypeRolesRestApi\Dependency\Client\CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface
-     *
-     * @throws \Spryker\Glue\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     protected function getCompanyRoleClient(): CompanyUserCompanyTypeRolesRestApiToCompanyRoleClientInterface
     {
